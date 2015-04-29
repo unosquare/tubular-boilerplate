@@ -1,0 +1,27 @@
+{
+  "name": "tubular-boilerplate",
+  "version": "1.0.0",
+  "homepage": "https://github.com/unosquare/tubular-boilerplate",
+  "authors": [
+    "Geo Perez <geovanni.perez@gmail.com>"
+  ],
+  "description": "Tubular Directives Boilerplate (includes AngularJS and Bootstrap)",
+  "keywords": [
+    "tubular",
+    "angularjs",
+    "bootstrap",
+    "directives",
+    "UI"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tubular": "~0.9.6"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "tubular-boilerplate",
+  "version": "1.0.0",
+  "description": "Tubular Directives Boilerplate (includes AngularJS and Bootstrap)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unosquare/tubular-boilerplate.git"
+  },
+  "keywords": [
+    "tubular",
+    "angularjs",
+    "bootstrap",
+    "directives",
+    "UI"
+  ],
+  "author": "Unosquare",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unosquare/tubular-boilerplate/issues"
+  },
+  "homepage": "https://github.com/unosquare/tubular-boilerplate"
+}
