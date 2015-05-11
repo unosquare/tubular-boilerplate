@@ -22,6 +22,6 @@
     "tests"
   ],
   "dependencies": {
-    "tubular": "~0.9.6"
+    "tubular": "~0.9.10"
   }
 }
