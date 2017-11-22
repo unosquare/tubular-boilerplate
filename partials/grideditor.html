@@ -1,55 +1,61 @@
 ﻿<div class="container">
     <div class="page-header">
-        <h1>Northwind Categories</h1>
+        <h1>Orders - Grid Editor</h1>
     </div>
 
-    <tb-grid server-url="http://services.odata.org/V3/Northwind/Northwind.svc/Categories" request-method="GET" class="row" require-authentication="false" page-size="10" service-name="odata" editor-mode="inline">
+    <tb-grid server-url="//tubular.azurewebsites.net/api/orders/paged" server-save-url="" request-method="POST" grid-name="Grid Editor" page-size="10"
+        require-authentication="false">
         <div class="row">
-            <tb-grid-pager class="col-md-6"></tb-grid-pager>
-            <div class="col-md-3">
-                <div class="btn-group">
-                    <tb-print-button title="Tubular" class="btn-sm"></tb-print-button>
-                    <tb-export-button filename="tubular.csv" css="btn-sm"></tb-export-button>
-                </div>
-            </div>
-            <tb-text-search class="col-md-3" css="input-sm"></tb-text-search>
+            <tb-grid-pager class="col-md-8 col-xs-12"></tb-grid-pager>
+            <tb-text-search class="col-md-4 col-xs-12"></tb-text-search>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default panel-rounded">
                     <tb-grid-table class="table-bordered">
                         <tb-column-definitions>
-                            <tb-column label="Actions"><tb-column-header>{{label}}</tb-column-header></tb-column>
-                            <tb-column name="CategoryID" label="Category ID" column-type="numeric" sortable="true"
-                                       sort-order="1" is-key="true" searchable="false" visible="true">
-                                <tb-column-filter></tb-column-filter>
+                            <tb-column name="OrderID" sortable="true" sort-order="1" sort-direction="Ascending" is-key="true" column-type="numeric">
+                                <tb-column-filter operator="Equals"></tb-column-filter>
                                 <tb-column-header>{{label}}</tb-column-header>
                             </tb-column>
-                            <tb-column name="CategoryName" label="Category Name" column-type="string" sortable="true"
-                                       sort-order="-1" is-key="false" searchable="true" visible="true">
-                                <tb-column-filter></tb-column-filter>
+                            <tb-column name="CustomerName" sortable="true" aggregate="Count" searchable="true">
+                                <tb-column-filter operator="Equals"></tb-column-filter>
                                 <tb-column-header>{{label}}</tb-column-header>
                             </tb-column>
-                            <tb-column name="Description" label="Description" column-type="string" sortable="true"
-                                       sort-order="-1" is-key="false" searchable="true" visible="true">
-                                <tb-column-filter></tb-column-filter>
+                            <tb-column name="ShippedDate" sortable="true">
+                                <tb-column-header>{{label}}</tb-column-header>
+                            </tb-column>
+                            <tb-column name="ShipperCity" sortable="true" searchable="true">
+                                <tb-column-filter operator="Contains"></tb-column-filter>
+                                <tb-column-header>{{label}}</tb-column-header>
+                            </tb-column>
+                            <tb-column name="Amount" sortable="true" aggregate="Sum">
                                 <tb-column-header>{{label}}</tb-column-header>
                             </tb-column>
                         </tb-column-definitions>
                         <tb-row-set>
                             <tb-row-template ng-repeat="row in $component.rows" row-model="row">
                                 <tb-cell-template>
-                                    <tb-save-button model="row"></tb-save-button>
-                                    <tb-edit-button model="row"></tb-edit-button>
+                                    <tb-save-button model="row" save-css="btn-xs" cancel-css="btn-danger btn-xs">
+                                    </tb-save-button>
+                                    <tb-edit-button model="row" class="btn-xs" caption="{{row.OrderID}}">
+                                    </tb-edit-button>
                                 </tb-cell-template>
-                                <tb-cell-template column-name="CategoryID">
-                                    <tb-numeric-editor is-editing="row.$isEditing" value="row.CategoryID"></tb-numeric-editor>
+                                <tb-cell-template>
+                                    <tb-simple-editor is-editing="row.$isEditing" name="CustomerName" value="row.CustomerName">
+                                    </tb-simple-editor>
                                 </tb-cell-template>
-                                <tb-cell-template column-name="CategoryName">
-                                    <tb-simple-editor is-editing="row.$isEditing" value="row.CategoryName"></tb-simple-editor>
+                                <tb-cell-template>
+                                    <tb-date-editor is-editing="row.$isEditing" name="ShippedDate" value="row.ShippedDate">
+                                    </tb-date-editor>
                                 </tb-cell-template>
-                                <tb-cell-template column-name="Description">
-                                    <tb-simple-editor is-editing="row.$isEditing" value="row.Description"></tb-simple-editor>
+                                <tb-cell-template>
+                                    <tb-simple-editor is-editing="row.$isEditing" name="ShipperCity" value="row.ShipperCity">
+                                    </tb-simple-editor>
+                                </tb-cell-template>
+                                <tb-cell-template>
+                                    <tb-numeric-editor is-editing="row.$isEditing" name="Amount" value="row.Amount">
+                                    </tb-numeric-editor>
                                 </tb-cell-template>
                             </tb-row-template>
                         </tb-row-set>
@@ -57,10 +63,11 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <tb-grid-pager class="col-md-6"></tb-grid-pager>
-            <tb-page-size-selector class="col-md-3" selectorcss="input-sm"></tb-page-size-selector>
-            <tb-grid-pager-info class="col-md-3"></tb-grid-pager-info>
+            <tb-grid-pager class="col-md-6 col-xs-12"></tb-grid-pager>
+            <tb-page-size-selector class="col-md-3 col-xs-6"></tb-page-size-selector>
+            <tb-grid-pager-info class="col-md-3 col-xs-6"></tb-grid-pager-info>
         </div>
     </tb-grid>
 </div>
