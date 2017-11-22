@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngCookies', 'tubular.directives'])
+angular.module('app', ['ngRoute', 'tubular'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', { templateUrl: 'partials/grid.html', })

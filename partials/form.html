@@ -1,59 +1,47 @@
-﻿<tb-form layout="" server-save-method="POST" model-key="10248" server-url="http://services.odata.org/V3/Northwind/Northwind.svc/Orders" server-save-url="http://services.odata.org/V3/Northwind/Northwind.svc/Orders" service-name="odata">
-    <div class="page-header">
-        <h1>Northwind Order Detail</h1>
-    </div>
+﻿<div class="container">
+    <tb-form server-save-url="" require-authentication="false" model="Model">
+        <div class="row">
+            <div class="col-md-9">
+                <tb-simple-editor min="3" show-label="true" name="CustomerName" default-value="Customer" regex="[A-Z][a-z].*" regex-error-message="Customer should start with uppercase">
+                </tb-simple-editor>
 
-    <tb-numeric-editor name="OrderID" label="Order ID" editor-type="numeric"
-                       show-label="true" placeholder="" required="true"
-                       read-only="false" format="" help="">
-    </tb-numeric-editor>
-    <tb-simple-editor name="CustomerID" label="Customer ID" editor-type="string"
-                      show-label="true" placeholder="" required="true"
-                      read-only="false" format="" help="">
-    </tb-simple-editor>
-    <tb-numeric-editor name="EmployeeID" label="Employee ID" editor-type="numeric"
-                       show-label="true" placeholder="" required="true"
-                       read-only="false" format="" help="">
-    </tb-numeric-editor>
-    <tb-date-time-editor name="OrderDate" label="Order Date" editor-type="date"
-                         show-label="true" placeholder="" required="true"
-                         read-only="false" format="" help="">
-    </tb-date-time-editor>
-    <tb-date-time-editor name="RequiredDate" label="Required Date" editor-type="date"
-                         show-label="true" placeholder="" required="true"
-                         read-only="false" format="" help="">
-    </tb-date-time-editor>
-    <tb-date-time-editor name="ShippedDate" label="Shipped Date" editor-type="date"
-                         show-label="true" placeholder="" required="true"
-                         read-only="false" format="" help="">
-    </tb-date-time-editor>
-    <tb-numeric-editor name="ShipVia" label="Ship Via" editor-type="numeric"
-                       show-label="true" placeholder="" required="true"
-                       read-only="false" format="" help="">
-    </tb-numeric-editor>
-    <tb-simple-editor name="Freight" label="Freight" editor-type="string"
-                      show-label="true" placeholder="" required="true"
-                      read-only="false" format="" help="">
-    </tb-simple-editor>
-    <tb-simple-editor name="ShipName" label="Ship Name" editor-type="string"
-                      show-label="true" placeholder="" required="true"
-                      read-only="false" format="" help="">
-    </tb-simple-editor>
-    <tb-simple-editor name="ShipAddress" label="Ship Address" editor-type="string"
-                      show-label="true" placeholder="" required="true"
-                      read-only="false" format="" help="">
-    </tb-simple-editor>
-    <tb-simple-editor name="ShipCity" label="Ship City" editor-type="string"
-                      show-label="true" placeholder="" required="true"
-                      read-only="false" format="" help="">
-    </tb-simple-editor>
-    <tb-numeric-editor name="ShipPostalCode" label="Ship Postal Code" editor-type="numeric"
-                       show-label="true" placeholder="" required="true"
-                       read-only="false" format="" help="">
-    </tb-numeric-editor>
-    <tb-simple-editor name="ShipCountry" label="Ship Country" editor-type="string"
-                      show-label="true" placeholder="" required="true"
-                      read-only="false" format="" help="">
-    </tb-simple-editor>
-    <tb-form-buttons show-cancel="true"></tb-form-buttons>
-</tb-form>
+                <tb-simple-editor show-label="true" name="Comments">
+                </tb-simple-editor>
+
+                <tb-simple-editor name="ShipperCity" value="Model.ShipperCity" show-label="true" required="true" help="City">
+                </tb-simple-editor>
+
+                <tb-numeric-editor name="Amount" min="1" max="100" format="C" show-label="true" required="true" default-value="100">
+                </tb-numeric-editor>
+
+                <tb-date-editor name="ShippedDate" required="true" format="'dd-MM-yyyy'" show-label="true">
+                </tb-date-editor>
+
+                <tb-checkbox-field name="IsShipped" show-label="true" label="Is Shipped?">
+                </tb-checkbox-field>
+
+                <hr />
+                <div class="pull-right">
+                    <button class="btn btn-primary" ng-click="$parent.create()" ng-disabled="!$parent.model.$valid()">
+                        <i class="fa fa-floppy-o"></i>&nbsp;Save
+                    </button>
+                    <button class="btn btn-danger" ng-click="$parent.cancel()">
+                        <i class="fa fa-ban"></i>&nbsp;Cancel
+                    </button>
+                    <button class="btn btn-warning" ng-click="$parent.clear()">
+                        <i class="fa fa-times"></i>&nbsp;Reset
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="jumbotron">
+                    <h3>
+                        <i class="fa fa-truck fa-5x" aria-hidden="true"></i>
+                        Please complete the form, we must have orders.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </tb-form>
+</div>
