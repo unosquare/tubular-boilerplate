@@ -1,8 +1,9 @@
 ![Tubular](http://unosquare.github.io/tubular/assets/tubular.png)
 
+# Tubular Boilerplate
 *:star:Please star this project if you find it useful!*
 
-# Tubular Boilerplate
+**Important** - This repository has been archived. We are not longer maintaining this project. Please check Tubular for [Angular.io](https://github.com/unosquare/tubular2) or [React](https://github.com/unosquare/tubular-react).
 
 Tubular Directives Boilerplate (includes AngularJS and Bootstrap). You can find two Index files, **index.html** has all the required dependencies using Bower and **index-cdn.html** is using a CDN ([JsDelivr](http://www.jsdelivr.com/)). Both files have the same functionality.
 
