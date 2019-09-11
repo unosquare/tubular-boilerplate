@@ -1,4 +1,4 @@
-![Tubular](http://unosquare.github.io/tubular/assets/tubular.png)
+![Tubular](http://unosquare.github.io/tubular-angular/assets/tubular.png)
 
 # Tubular Boilerplate
 *:star:Please star this project if you find it useful!*
